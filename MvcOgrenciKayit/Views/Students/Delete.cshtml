@@ -1,0 +1,70 @@
+﻿@model MvcOgrenciKayit.Models.Students
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Öğrenci Bilgileri Silme İşlemi</h3>@*Öğrenci Bilgileri Silme İşlemi başlığımız*@
+<hr />
+
+<div>
+    @*Fotoğraf ekleme kodlarımız*@
+    <dt>
+        <img src="@Model.StudentiFotograf" height="100" width="100" />
+    </dt>
+    <hr />
+
+    @*Öğrenci Bilgilerini gösteren liste kodlarımız*@
+    <dl class="dl-horizontal">
+        @*Ad; liste kodlarımız*@
+        <dt>@*Listemizin başlıkları*@
+            @Html.DisplayNameFor(model => model.StudentAd)@*Başlık vermek için 1. Yol*@
+            <!--Ad-->@*Başlık vermek için 1. Yol*@
+        </dt>
+        <dd>@*Listemizin verileri*@
+            @Html.DisplayFor(model => model.StudentAd)
+        </dd>
+
+        @*Soyad; liste kodlarımız*@
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentSoyad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StudentSoyad)
+        </dd>
+
+        @*Mail; liste kodlarımız*@
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentMail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StudentMail)
+        </dd>
+
+        @*Adres; liste kodlarımız*@
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentAdres)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StudentAdres)
+        </dd>
+
+    </dl>
+    
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @*Sil; butonu kodlarımız*@
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Sil" class="btn btn-danger" />
+            </div>
+        </div>
+        <div>
+            <!--@Html.ActionLink("Listeye Geri Dön" , "Index")-->@*Listeye Geri Dön butonu ekleme 1.Yol*@
+            <a href="/Students/Index">Listeye Geri Dön</a>@*Listeye Geri Dön butonu ekleme 2. Yol*@
+        </div>
+    }
+</div>

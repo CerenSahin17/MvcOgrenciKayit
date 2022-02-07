@@ -1,0 +1,59 @@
+﻿@model MvcOgrenciKayit.Models.Students
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Öğrenci Bilgi Detayları</h3>@*Öğrenci Bilgi Detayları başlığımız*@
+<hr />
+
+<div>
+    @*Fotoğraf ekleme kodlarımız*@
+    <dt>
+        <img src="@Model.StudentiFotograf" height="100" width="100" />
+    </dt>
+    <hr />
+
+    @*Öğrenci Bilgilerini gösteren liste kodlarımız*@
+    <dl class="dl-horizontal">
+        @*Ad; liste kodlarımız*@
+        <dt>@*Listemizin başlıkları*@
+            @Html.DisplayNameFor(model => model.StudentAd)@*Başlık vermek için 1. Yol*@
+            <!--Ad-->@*Başlık vermek için 1. Yol*@
+        </dt>
+        <dd>@*Listemizin verileri*@
+            @Html.DisplayFor(model => model.StudentAd)
+        </dd>
+
+        @*Soyad; liste kodlarımız*@
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentSoyad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StudentSoyad)
+        </dd>
+
+        @*Mail; liste kodlarımız*@
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentMail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StudentMail)
+        </dd>
+
+        @*Adres; liste kodlarımız*@
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentAdres)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StudentAdres)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <!--@Html.ActionLink("Listeye Geri Dön" , "Index")-->@*Listeye Geri Dön butonu ekleme 1.Yol*@
+    <a href="/Students/Index">Listeye Geri Dön</a> | @*Listeye Geri Dön butonu ekleme 2. Yol*@
+    <!--@Html.ActionLink("Düzenleme Sayfasına Git", "Edit", new { id = Model.StudentId })-->@*Düzenleme Sayfasına Git butonu ekleme 1.Yol*@
+    <a href="/Students/Edit/@Model.StudentId">Düzenleme Sayfasına Git</a>@*Düzenleme Sayfasına Git butonu 2.Yol*@
+</p>

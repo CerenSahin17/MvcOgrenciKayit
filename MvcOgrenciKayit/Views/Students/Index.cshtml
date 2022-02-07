@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MvcOgrenciKayit.Models.Students>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Öğrenci Listesi</h3>@*Öğrenci Listesi başlığımız*@
+<hr />
+
+@*Öğrenci Bilgilerini gösteren tablo kodlarımız*@
+<table class="table">
+    <thead>
+        @*Tablomuzun başlıkları*@
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentAd)@*Başlık vermek için 1. Yol*@
+                <!--Ad-->@*Başlık vermek için 2. Yol*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentAdres)
+            </th>
+        </tr>
+</thead>
+    <tbody>
+        @*Tablomuzun verileri*@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentAd)@*Veri eklemek için 1. Yol*@
+                    <!--@item.StudentAd-->@*Veri eklemek için 2. Yol*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentMail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentAdres)
+                </td>
+
+                <td>
+                    <!--@Html.ActionLink("Düzenle", "Edit", new { id = item.StudentId }, new { @class = "btn-btn-info" })-->@*Buton oluşturma 1.Yol*@
+                    <a class="btn btn-info" href="/Students/Edit/@item.StudentId">Düzenle</a> | @*Buton oluşturma 2.Yol Düzenle butonumuz*@
+                    <a class="btn btn-warning" href="/Students/Details/@item.StudentId">Detaylar</a> | @*Detaylar butonumuz*@
+                    <a class="btn btn-danger" href="/Students/Delete/@item.StudentId">Sil</a> | @*Sil butonumuz*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<div>
+    <a class="btn btn-danger form-" href="/Students/Create " />Yeni Kayıt</a>@*Yeni Kayıt butonumuz*@
+</div>
